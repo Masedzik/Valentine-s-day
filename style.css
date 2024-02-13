@@ -1,0 +1,267 @@
+:root{
+    --color-primary: #BD4E73;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+    main{
+        width: 100%;
+        height: 100%;
+    }
+
+            .bg {
+                animation:slide 10s ease-in-out infinite alternate;
+                background-image: linear-gradient(-60deg, #670100 50%, #9D152D 50%);
+                bottom:0;
+                left:-50%;
+                opacity:.5;
+                position:fixed;
+                right:-50%;
+                top:0;
+                z-index:-1;
+            }
+            
+                .bg2 {
+                    animation-direction:alternate-reverse;
+                    animation-duration:11s;
+                }
+            
+                .bg3 {
+                    animation-duration:12s;
+                }
+                
+                @keyframes slide {
+                    0% {
+                    transform:translateX(-25%);
+                    }
+                    100% {
+                    transform:translateX(25%);
+                    }
+                }
+
+
+
+        #content-section{
+            width: 100%;
+            height: 100%;
+
+            display: grid;
+            place-content: center;
+
+            position:fixed;
+        }
+
+            #main-container{
+                @media screen and (orientation:portrait){
+                    width: 50vh;
+                    height: 50vh;
+                }
+                @media screen and (orientation:landscape){
+                    width: 30vw;
+                    height: 30vw;
+                }
+
+                position: relative;
+            }
+                #main-container .front, #main-container .back {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    height: 100%;
+                    width: 100%;
+                    transition: 1.5s;
+                    backface-visibility: hidden;
+                    
+                }
+                    .front{
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    .back{
+                        display: grid;
+                        place-content: center;
+                    }
+
+                #main-container .back {
+                    transform: rotateY(180deg);
+                }
+                #main-container.show_info .back {
+                    transform: rotateY(0deg);
+                }
+                #main-container.show_info .front {
+                    transform: rotateY(-180deg);
+                }
+
+                    #main-heart {
+                        width: 50%;
+                        width: 50%;
+
+                        stroke: var(--color-primary);
+                        filter: drop-shadow(0 0 4px var(--color-primary)) drop-shadow(0 0 8px #670100)
+                        drop-shadow(0 0 20px var(--color-primary));
+                        
+                        animation: shake-animation 4.72s ease infinite;
+                        transform-origin: 50% 50%;
+                    }
+                        @keyframes shake-animation {
+                            0% { transform:translate(0,0) }
+                            1.78571% { transform:translate(5px,0) }
+                            3.57143% { transform:translate(0,0) }
+                            5.35714% { transform:translate(5px,0) }
+                            7.14286% { transform:translate(0,0) }
+                            8.92857% { transform:translate(5px,0) }
+                            10.71429% { transform:translate(0,0) }
+                            100% { transform:translate(0,0) }
+                        }
+
+                    .neon-text {
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                        
+                        @media screen and (orientation:portrait){
+                            font-size: 1.5vh;
+                        }
+                        @media screen and (orientation:landscape){
+                            font-size: 1.5vw;
+                        }
+
+                        color: #ffd8d8;
+
+                        text-shadow:
+                        0 0 7px #ffd8d8,
+                        0 0 10px #f25757,
+                        0 0 21px #f25757,
+                        0 0 42px #f25757,
+                        0 0 82px #e50b0b,
+                        0 0 92px #e50b0b,
+                        0 0 102px #e50b0b;
+                    }
+
+                    .valentines-day {
+                        position: relative;
+                        cursor: pointer;
+                        transform: scale(2);
+
+                        text-align: center;
+                      }
+                      
+                      .envelope {
+                        position: relative;
+                        filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
+                      }
+                      
+                      .envelope:before {
+                        content:"";
+                        position: absolute;
+                        width:254px;
+                        height:254px;
+                        background-color: #ff9494;
+                        transform: rotate(-45deg);
+                        border-radius: 0 15px 0 0;
+                        left:-37px;
+                        top:-82px;
+                      }
+                      
+                      .envelope:after {
+                        content:"";
+                        position: absolute;
+                        background-color: #ff9494;
+                        width:360px;
+                        height:225px;
+                        left:-90px;
+                        top:45px;
+                      }
+                      
+                      .heart {
+                        position: relative;
+                        background-color: #e01911;
+                        display: inline-block;
+                        height: 180px;
+                        top: 50px;
+                        left:0;
+                        transform: rotate(-45deg);
+                        width:180px;
+                        filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+                        transition: .5s;
+                      }
+                        
+                      .heart:before, .heart:after {
+                        content:"";
+                        background-color: #e01911;
+                        border-radius:50%;
+                        height: 180px;
+                        width: 180px;
+                        position: absolute;
+                        }
+                        
+                      .heart:before {
+                        top:-100px;
+                        left:0;}
+                        
+                      .heart:after {
+                        left:100px;
+                        top:0;}
+                      
+                      .front-card {
+                        position: absolute;
+                        width:0;
+                        height:0;
+                        border-right: 190px solid #fbd2d2;
+                        border-top: 113px solid transparent;
+                        border-bottom: 113px solid transparent;
+                        top:44px;
+                        left:80px;
+                        z-index:4;
+                      }
+                      
+                      .front-card:before {
+                        content:"";
+                        position: absolute;
+                        width:0;
+                        height:0;
+                        border-left: 190px solid #fbd2d2;
+                        border-top: 113px solid transparent;
+                        border-bottom: 113px solid transparent;
+                        top:-113px;
+                        left:-170px;
+                      }
+                      
+                      .front-card:after {
+                        width:0;
+                        height:0;
+                        position: absolute;
+                        content:"";
+                        border-bottom: 150px solid #fce7e9;
+                        border-right:180px solid transparent;
+                        border-left: 180px solid transparent;
+                        top:-36px;
+                        left:-170px;
+                      }
+                      
+                      .text {
+                        width: 150%;
+                        height: 100%;
+
+                        position: absolute;
+                        letter-spacing:5px;
+                        text-align: center;
+                        color: white;
+                        z-index:2;
+                        top: 50px;
+                        left:-50px;
+                        transition: .5s;
+                      }
+                      
+                      .heart-anim {
+                        transform: translateY(-50px) rotate(-45deg);
+                      }
+                      
+                      .text-anim {
+                        transform: translateY(-50px);
+                      }
